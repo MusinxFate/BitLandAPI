@@ -35,6 +35,18 @@ public class ProdutoController : Controller
         return NotFound("Produto não encontrado.");
     }
 
+    [HttpGet("destaques")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> GetProdutosDestaque()
+    {
+        var produtosDestaque = await _context.Produtos.Where(a => a.destaque == true).ToListAsync();
+        if (produtosDestaque != null)
+            return Ok(produtosDestaque);
+
+        return NotFound("Sem produtos de destaque");
+    }
+
     [HttpPost("")]
     [ProducesResponseType(201)]
     [ProducesResponseType(400)]
