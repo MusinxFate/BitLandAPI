@@ -1,0 +1,82 @@
+* {
+	font-family: 'VT323', monospace;
+	font-size: 15px;
+	font-weight: lighter;
+	-webkit-transition:  all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	-moz-transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	-ms-transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	-o-transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+}
+
+.container {
+	width: 100%;
+}
+/* Estilo geral da página */
+body {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+.background {
+    background-color: #2f2e30;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-container {
+    background-color: #ffffff;
+    border: 2px solid #e6d839;
+    width: 450px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+	border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+
+  .title-login {
+	text-align: left;
+  }
+  
+  input[type="submit"] {
+    background-color: #e84b2c;
+	border-radius: 15px;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #f35f41;
+  }
+  

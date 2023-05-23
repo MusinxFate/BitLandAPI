@@ -1,9 +1,10 @@
 ﻿using BitLandAPI.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BitLandAPI.Repository;
 
-public class BitLandDBContext : DbContext
+public class BitLandDBContext : IdentityDbContext
 {
     private readonly IConfiguration _configuration;
     public BitLandDBContext()

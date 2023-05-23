@@ -1,0 +1,120 @@
+* {
+	font-family: 'VT323', monospace;
+	font-size: 15px;
+	font-weight: lighter;
+	-webkit-transition:  all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	-moz-transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	-ms-transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	-o-transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+	transition: all .01s cubic-bezier(.190, 1.000, .220, 1.000);
+    margin: 0;
+	padding: 0;
+}
+
+/* Estilo geral da página */
+body {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.background {
+    background-color: #2f2e30;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.prod_cadastro_container {
+    background-color: #ffffff;
+    border: 2px solid #e6d839;
+    padding: 20px;
+    min-width: 450px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #e84b2c;
+	border-radius: 15px;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #f35f41;
+  }
+  

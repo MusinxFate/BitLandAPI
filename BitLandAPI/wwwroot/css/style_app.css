@@ -93,6 +93,7 @@ nav a:hover {
 .search {
 	border: 0px solid ;
 	width: 500px;
+	height: 25px;
 	background-color: #e84b2c;
 	color: #2f2e30;
 	float: center;
@@ -129,10 +130,7 @@ nav a:hover {
 	text-align: center;
 }
 
-.imageDestaque{
-	width: 150px;
-	height: 150px;
-}
+
 
 /* Estilo do conteúdo principal */
 
@@ -189,7 +187,8 @@ section a:hover {
 
 section img {
 	max-width: 100%;
-	height: auto;
+	height: 120px;
+	width: 120px;
 	margin-bottom: 10px;
 }
 
@@ -435,3 +434,6 @@ footer nav a {
 	font-size: 1.2rem;
 	text-align: center;
 	}
+
+
+

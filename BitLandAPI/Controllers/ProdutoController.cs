@@ -62,8 +62,6 @@ public class ProdutoController : Controller
             Console.WriteLine(e);
             return BadRequest();
         }
-
-        return new ObjectResult(produto) { StatusCode = 201 };
     }
 
     [HttpPut("")]
@@ -71,7 +69,7 @@ public class ProdutoController : Controller
     [ProducesResponseType(400)]
     public async Task<IActionResult> UpdateProduto(Produto produto)
     {
-        var produtoDb = _context.Produtos.FirstOrDefault(a => a.id_produto == produto.id_produto);
+        var produtoDb = await _context.Produtos.FirstOrDefaultAsync(a => a.id_produto == produto.id_produto);
         if (produtoDb != null)
         {
             return new ObjectResult(produto) { StatusCode = 201 };
@@ -85,14 +83,28 @@ public class ProdutoController : Controller
     [ProducesResponseType(400)]
     public async Task<IActionResult> DeleteProduto(int id)
     {
-        var produtoDb = _context.Produtos.FirstOrDefault(a => a.id_produto == id);
-        if (produtoDb != null)
+        var produto = _context.Produtos.FirstOrDefault(a => a.id_produto == id);
+        if (produto != null)
         {
-            _context.Produtos.Remove(produtoDb);
+            _context.Produtos.Remove(produto);
             await _context.SaveChangesAsync();
             return Accepted();
         }
 
         return BadRequest();
+    }
+
+    [HttpGet("promocoes")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> GetPromocoes()
+    {
+        var produtosPromocao = _context.Produtos.Where(a => a.promocao > 0);
+        if (produtosPromocao != null)
+        {
+            return Ok(produtosPromocao);
+        }
+
+        return NotFound("Sem produtos em promoção.");
     }
 }

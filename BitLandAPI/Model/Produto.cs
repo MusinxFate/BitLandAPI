@@ -9,6 +9,7 @@ public class Produto
     [MaxLength(120)] [NotNull] public string nome { get; set; }
     [MaxLength(800)] public string descricao { get; set; }
     [NotNull] public double preco { get; set; }
+    [NotNull] public double promocao { get; set; }
     [MaxLength(255)] public string pathImage { get; set; }
     public string categoria { get; set; }
     public bool destaque { get; set; }

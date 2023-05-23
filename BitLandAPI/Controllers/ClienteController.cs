@@ -60,9 +60,7 @@ public class ClienteController : Controller
         var clienteDb = await _context.Clientes.FirstOrDefaultAsync(a => a.id_cliente == cliente.id_cliente);
         if (clienteDb != null)
         {
-            // clienteDb = cliente;
-            // _context.Clientes.Update(clienteDb);
-            // await _context.SaveChangesAsync();
+            
             return new ObjectResult(cliente) { StatusCode = 201 };
         }
 

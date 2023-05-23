@@ -6,9 +6,7 @@ const getProducts = async () => {
             "ngrok-skip-browser-warning": "any"
         }
     });
-
     const data = await response.json();
-
     produtos = JSON.parse(JSON.stringify(data));
     atualizarProdutos();
 }
@@ -19,7 +17,8 @@ function atualizarProdutos() {
         var aLinkProduto = document.createElement("a");
         aLinkProduto.href = "#";
         var imgProduto = document.createElement("img");
-        imgProduto.src = document.URL.replace("/index.html#", "") + a.pathImage;
+        imgProduto.src = window.location.origin + a.pathImage;
+        imgProduto.alt = a.descricao;
         imgProduto.className = 'imageDestaque';
         var h3NomeProduto = document.createElement("h3");
         h3NomeProduto.innerText = a.nome;
