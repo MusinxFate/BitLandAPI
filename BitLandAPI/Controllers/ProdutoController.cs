@@ -50,7 +50,7 @@ public class ProdutoController : Controller
     [HttpPost("")]
     [ProducesResponseType(201)]
     [ProducesResponseType(400)]
-    public async Task<IActionResult> CreateProduto(Produto produto)
+    public async Task<IActionResult> CreateProduto([FromBody] Produto produto)
     {
         try
         {

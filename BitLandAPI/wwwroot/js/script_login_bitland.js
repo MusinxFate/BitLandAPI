@@ -1,15 +1,33 @@
-function fazerLogin() {
+dataTest = {};
+
+async function fazerLogin() {
     var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-    
-    if (username !== '') {
-        // Armazenar o nome de usuário na sessão ou em um cookie, se necessário
-        // Aqui, apenas exibiremos o nome de usuário na tela
-        usuarioLogado = username;
-
-        // Redirecionar para a tela inicial
-        window.location.href = '../app.html';
-
-        console.log(usuarioLogado)
+    var data = {
+        "login": username,
+        "password": password,
+        "nome": "string",
+        "email": "string",
+        "telefone": "string"
     }
+
+    if (username.length > 0) {
+        const response = await fetch(window.location.origin + "/user/login", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*'
+                },
+                body: JSON.stringify(data)
+            }
+        ).then(function(data) {
+            return data.json();
+        }).then(function (data) {
+            console.log(data);
+            dataTest = data;
+            localStorage.setItem('userjwt', data["JWT"])
+            localStorage.setItem('ClienteId', data["ClienteId"])
+        })
     }
+}

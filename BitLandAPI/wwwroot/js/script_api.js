@@ -4,6 +4,15 @@ var produtospromocao = [];
 const loadPagina = async () => {
     getProducts();
     getProductsPromocao();
+    checkJwt();
+}
+
+const checkJwt = async () => {
+    if (localStorage.getItem("userjwt") == null) {
+        console.log("Usuário não logado.");
+    } else {
+        console.log("Usuário logado.")
+    }
 }
 
 const getProducts = async () => {
@@ -51,8 +60,8 @@ const getProductsPromocao = async () => {
     atualizarProdutosPromocao();
 }
 
-function atualizarProdutosPromocao(){
-    produtospromocao.forEach(a =>  {
+function atualizarProdutosPromocao() {
+    produtospromocao.forEach(a => {
         var liProdutoPromocao = document.createElement("li");
         var aLinkProdutoPromocao = document.createElement("a");
         aLinkProdutoPromocao.href = "#";
@@ -68,7 +77,7 @@ function atualizarProdutosPromocao(){
         var pPrecoDesconto = document.createElement("p");
         pPrecoDesconto.className = "price-new";
         pPrecoDesconto.innerText = (a.preco - (a.promocao / 100 * a.preco)).toFixed(2);
-        
+
         aLinkProdutoPromocao.appendChild(imgProduto);
         aLinkProdutoPromocao.appendChild(h3NomeProdutoPromocao);
         aLinkProdutoPromocao.appendChild(pPrecoNormal);
