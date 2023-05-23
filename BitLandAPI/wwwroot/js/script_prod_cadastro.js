@@ -5,7 +5,7 @@ document.getElementById("formulario").addEventListener("submit", async function 
     var descricao = document.getElementById("descricao").value;
     var preco = document.getElementById("preco").value;
     
-    var imagem = document.getElementById("imagem").input.files[0];
+    var imagem = document.getElementById("imagem").value;
     
     var categoria = document.getElementById("categoria").value;
     var destaque = document.getElementById("destaque").checked;
