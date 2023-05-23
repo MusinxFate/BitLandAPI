@@ -1,7 +1,20 @@
 ﻿var produtos = [];
 
 const loadPagina = async () => {
+    checkLogin();
     getProducts();
+}
+
+async function checkLogin() {
+    if (localStorage.getItem("userjwt") != null)
+    {
+        var response = await fetch("/clientes/" + localStorage.getItem("ClienteId"));
+        const data = await response.json();
+        user = JSON.parse(JSON.stringify(data));
+        var loginbutton = document.querySelector("body > header > div > button.login-button > a");
+        loginbutton.href = "";
+        loginbutton.innerText = user.nome;
+    }
 }
 
 const getProducts = async () => {
