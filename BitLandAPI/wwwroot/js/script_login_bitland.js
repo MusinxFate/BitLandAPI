@@ -21,7 +21,7 @@ async function fazerLogin() {
                 },
                 body: JSON.stringify(data)
             }
-        ).then(function(data) {
+        ).then(function (data) {
             return data.json();
         }).then(function (data) {
             console.log(data);
@@ -29,5 +29,13 @@ async function fazerLogin() {
             localStorage.setItem('userjwt', data["JWT"])
             localStorage.setItem('ClienteId', data["ClienteId"])
         })
+
+        if (localStorage.getItem("userjwt") != null) {
+            redirecionarPaginaLogin();
+        }
     }
+}
+
+function redirecionarPaginaLogin() {
+    window.location.href = '../index.html';
 }

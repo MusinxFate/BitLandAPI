@@ -2,9 +2,22 @@ var produtos = [];
 var produtospromocao = [];
 
 const loadPagina = async () => {
+    checkLogin();
     getProducts();
     getProductsPromocao();
     checkJwt();
+}
+
+async function checkLogin() {
+    if (localStorage.getItem("userjwt") != null)
+    {
+        var response = await fetch("/clientes/" + localStorage.getItem("ClienteId"));
+        const data = await response.json();
+        user = JSON.parse(JSON.stringify(data));
+        var loginbutton = document.querySelector("body > div > header > div > button.login-button > a");
+        loginbutton.href = "";
+        loginbutton.innerText = user.nome;
+    }
 }
 
 const checkJwt = async () => {
