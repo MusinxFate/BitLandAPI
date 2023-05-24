@@ -1,5 +1,6 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+
 :root {
     --body-color: #0f0f0e;
     --white-color: #ffffff;
@@ -44,9 +45,6 @@ body {
 }
 
 
-
-
-
 .logo {
     width: 200px;
 }
@@ -81,24 +79,29 @@ body {
 .header-menu a:not(:first-child) {
     margin-left: 30px;
 }
+
 .header .menu-icon {
     display: flex;
     align-items: center;
     margin-right: 20px;
 }
+
 .header .menu-icon svg {
     width: 22px;
 }
+
 .header-icons {
     margin-left: auto;
     display: flex;
     align-items: center;
 }
+
 .header-icons svg {
     width: 18px;
     margin-top: 15px;
     margin-right: 35px;
 }
+
 .header-icons svg:not(:last-child) {
     margin-right: 20px;
 }
@@ -109,6 +112,7 @@ body {
 :root {
     --altoEncabezado: 60px;
 }
+
 .lateral {
     position: fixed;
     height: 100%;
@@ -150,7 +154,7 @@ body {
 /*-----------------------------------------*/
 
 
-#Grid, .itens, .placeholder{
+#Grid, .itens, .placeholder {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -160,30 +164,34 @@ body {
     margin-right: 19px;
 }
 
-#Grid{
+#Grid {
     margin-bottom: 40px;
     text-align: justify;
     font-size: 0.1px;
-    margin-left: 250px;
+    margin-left: 225px;
     margin-top: 20px;
 }
 
-#Grid li{
+#Grid li {
     display: inline-flex;
     background: #eee;
     width: 16%;
-    height: 27%;
-    margin-bottom: 5%;
-    margin-top: 7%;
+    height: 40%;
+    margin: 3%;
+    /*margin-bottom: 5%;*/
+    /*margin-top: 7%;*/
     border: #3b4148;
     border-radius: 15%;
     align-content: center;
 }
 
 .imgProduto {
+    margin: 5%;
+    margin-left: 8%;
     padding-top: 5px;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
+    align-self: center;
 }
 
 .price {
@@ -202,6 +210,9 @@ body {
 }
 
 .aTagProduto {
-    
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: grid;
 }
 
