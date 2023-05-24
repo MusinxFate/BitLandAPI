@@ -45,12 +45,14 @@ function atualizarProdutos() {
         liProduto.className = "itens"
         var aLinkProduto = document.createElement("a");
         aLinkProduto.href = "#";
+        aLinkProduto.className = "aTagProduto";
         var imgProduto = document.createElement("img");
         imgProduto.src = window.location.origin + a.pathImage;
         imgProduto.alt = a.descricao;
-        imgProduto.className = 'imageDestaque';
+        imgProduto.className = 'imgProduto';
         var h3NomeProduto = document.createElement("h3");
         h3NomeProduto.innerText = a.nome;
+        h3NomeProduto.className = 'nomeProduto';
         var pPreco = document.createElement("p");
         pPreco.className = "price";
         pPreco.innerText = (a.preco - (a.promocao / 100 * a.preco)).toFixed(2);

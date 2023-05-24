@@ -169,13 +169,39 @@ body {
 }
 
 #Grid li{
-    display: inline-block;
+    display: inline-flex;
     background: #eee;
-    width: 23%;
-    padding-top: 23%; 
-    margin-bottom: 2.5%;
+    width: 16%;
+    height: 27%;
+    margin-bottom: 5%;
+    margin-top: 7%;
+    border: #3b4148;
+    border-radius: 15%;
+    align-content: center;
 }
 
+.imgProduto {
+    padding-top: 5px;
+    height: 200px;
+    width: 200px;
+}
 
+.price {
+    background-color: #eee;
+    font-size: 1.2rem;
+    color: rgba(29, 30, 32);
+    text-align: center;
+    width: 35%;
+    border-radius: 25%;
+}
 
+.nomeProduto {
+    font-size: 1.2rem;
+    text-align: center;
+    color: rgba(29, 30, 32);
+}
+
+.aTagProduto {
+    
+}
 
