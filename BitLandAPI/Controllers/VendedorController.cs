@@ -63,7 +63,7 @@ public class VendedorController : Controller
             vendedorDb.email = (vendedorDb.email == vendedor.email) ? vendedorDb.email : vendedor.email;
             vendedorDb.telefone = (vendedorDb.telefone == vendedor.telefone) ? vendedorDb.telefone : vendedor.telefone;
 
-            return new ObjectResult(vendedor) { StatusCode = 201 };
+            return new ObjectResult(vendedorDb) { StatusCode = 201 };
         }
 
         return BadRequest();
