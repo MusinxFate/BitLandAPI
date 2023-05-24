@@ -2,10 +2,10 @@ var produtos = [];
 var produtospromocao = [];
 
 const loadPagina = async () => {
+    await checkJwt();
     checkLogin();
-    getProducts();
-    getProductsPromocao();
-    checkJwt();
+    await getProducts();
+    // getProductsPromocao();
 }
 
 async function checkLogin() {
@@ -14,9 +14,12 @@ async function checkLogin() {
         var response = await fetch("/clientes/" + localStorage.getItem("ClienteId"));
         const data = await response.json();
         user = JSON.parse(JSON.stringify(data));
-        var loginbutton = document.querySelector("body > div > header > div > button.login-button > a");
+        var loginbutton = document.querySelector("#userInfo");
         loginbutton.href = "";
-        loginbutton.innerText = user.nome;
+    }
+    else
+    {
+        document.querySelector("#userInfo").href = window.location.origin.toString() + "/pages/login_bitland.html"
     }
 }
 
@@ -103,4 +106,4 @@ function atualizarProdutosPromocao() {
     })
 }
 
-window.onload = loadPagina();
+window.onload = () => loadPagina();
