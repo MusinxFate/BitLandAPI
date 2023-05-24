@@ -60,7 +60,7 @@ async function fazerLogin(username, password) {
                     'Accept': '*/*'
                 },
                 body: JSON.stringify(data)
-            }
+            },
         ).then(function (data) {
             return data.json();
         }).then(function (data) {

@@ -64,7 +64,7 @@ public class UserController : Controller
     [ProducesResponseType(201)]
     [ProducesResponseType(400)]
     [Route("registrar")]
-    public async Task<IActionResult> Registrar(UserInfosDTO userInfos)
+    public async Task<IActionResult> Registrar([FromBody] UserInfosDTO userInfos)
     {
         var user = await _context.Clientes.FirstOrDefaultAsync(a => a.login == userInfos.login);
         if (user != null)

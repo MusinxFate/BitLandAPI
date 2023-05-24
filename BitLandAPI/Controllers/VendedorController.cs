@@ -59,6 +59,10 @@ public class VendedorController : Controller
         var vendedorDb = await _context.Vendedores.FirstOrDefaultAsync(a => a.id_vendedor == vendedor.id_vendedor);
         if (vendedorDb != null)
         {
+            vendedorDb.nome = (vendedorDb.nome == vendedor.nome) ? vendedorDb.nome : vendedor.nome;
+            vendedorDb.email = (vendedorDb.email == vendedor.email) ? vendedorDb.email : vendedor.email;
+            vendedorDb.telefone = (vendedorDb.telefone == vendedor.telefone) ? vendedorDb.telefone : vendedor.telefone;
+
             return new ObjectResult(vendedor) { StatusCode = 201 };
         }
 
