@@ -64,7 +64,6 @@ async function fazerLogin(username, password) {
         ).then(function (data) {
             return data.json();
         }).then(function (data) {
-            console.log(data);
             dataTest = data;
             localStorage.setItem('userjwt', data["JWT"])
             localStorage.setItem('ClienteId', data["ClienteId"])
@@ -82,30 +81,9 @@ function validarLogin() {
     var username = document.getElementById('login__username').value;
     var password = document.getElementById('login__password').value;
 
-    console.log(username);
-    console.log(password);
-
     // Validação simples (exemplo)
     if (username && password) {
-        // Login válido, redirecionar para a página de destinofunction validarLogin() {
-        //     // Obter os valores dos campos de nome de usuário e senha
-        //     var username = document.getElementById('username').value;
-        //     var password = document.getElementById('password').value;
-        // 
-        //     console.log(username);
-        //     console.log(password);
-        // 
-        //     // Validação simples (exemplo)
-        //     if (username && password) {
-        //         // Login válido, redirecionar para a página de destino
-        //         window.location.href = '../pages/app.html';
-        //     } else {
-        //         // Exibir mensagem de erro
-        //         alert('Nome de usuário ou senha inválidos!');
-        //     }
-        // }
         fazerLogin(username, password);
-        
     } else {
         // Exibir mensagem de erro
         alert('Nome de usuário ou senha não preenchidos!');

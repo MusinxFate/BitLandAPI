@@ -19,8 +19,6 @@ document.getElementById("formulario").addEventListener("submit", async function 
         "destaque": destaque
     }
 
-    console.log(JSON.stringify(produto))
-
     await fetch(window.location.origin + "/produtos/", {
         method: "POST",
         body: JSON.stringify(produto),
@@ -29,7 +27,6 @@ document.getElementById("formulario").addEventListener("submit", async function 
             'Accept': '*/*'
         }
     }).then(function (data) {
-        return data.json()
-        console.log(data.json())
+        return data.json();
     })
 });

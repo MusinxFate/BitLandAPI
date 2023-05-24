@@ -31,12 +31,11 @@ async function registrar() {
         }).then(function (data) {
             return data.json();
         }).then(async function (data) {
-            console.log(data);
             await fazerLogin(userinfo.login, userinfo.password);
         })
     }
     else{
-        console.log("Falha ao registrar.");
+        alert("Falha ao registrar.");
     }
 }
 
