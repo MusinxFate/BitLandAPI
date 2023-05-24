@@ -28,7 +28,7 @@ public class UserController : Controller
     public async Task<IActionResult> Autenticar([FromBody] UserInfosDTO userInfos)
     {
         var user = await GetUsuario(userInfos.login, userInfos.password);
-        
+
         if (user != null)
         {
             var claims = new[]
