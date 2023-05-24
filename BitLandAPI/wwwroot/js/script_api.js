@@ -47,7 +47,7 @@ function atualizarProdutos() {
         var liProduto = document.createElement("li");
         liProduto.className = "itens"
         var aLinkProduto = document.createElement("a");
-        aLinkProduto.href = "#";
+        aLinkProduto.href = "";
         aLinkProduto.className = "aTagProduto";
         var imgProduto = document.createElement("img");
         imgProduto.src = window.location.origin + a.pathImage;
