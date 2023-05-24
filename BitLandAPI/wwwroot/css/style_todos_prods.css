@@ -247,9 +247,9 @@ section {
 		border: 0px solid ;
 		width: 500px;
 		height: 25px;
+		border-radius: 15px;
 		background-color: #e84b2c;
 		color: #2f2e30;
-		float: center;
 		margin-top: 35px;
 		
 	}
@@ -258,8 +258,8 @@ section {
 		border: 0px solid;
 		background-color: #e84b2c;
 		color: #2f2e30;
-		float: center;
 		margin-top: 35px;
+		border-radius: 15px;
 		
 	}
 	.login-button {
