@@ -42,6 +42,7 @@ const getProducts = async () => {
 function atualizarProdutos() {
     produtos.forEach(a => {
         var liProduto = document.createElement("li");
+        liProduto.className = "itens"
         var aLinkProduto = document.createElement("a");
         aLinkProduto.href = "#";
         var imgProduto = document.createElement("img");
@@ -58,7 +59,7 @@ function atualizarProdutos() {
         aLinkProduto.appendChild(h3NomeProduto);
         aLinkProduto.appendChild(pPreco);
         liProduto.appendChild(aLinkProduto);
-        document.querySelector("body > div.container > main > section.Featured > ul").appendChild(liProduto);
+        document.querySelector("#Grid").appendChild(liProduto);
     });
 }
 
