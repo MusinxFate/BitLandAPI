@@ -30,11 +30,49 @@ async function registrar() {
             body: JSON.stringify(userinfo)
         }).then(function (data) {
             return data.json();
-        }).then(function (data) {
+        }).then(async function (data) {
             console.log(data);
+            await fazerLogin(userinfo.login, userinfo.password);
         })
     }
     else{
         console.log("Falha ao registrar.");
     }
+}
+
+async function fazerLogin(username, password) {
+    var data = {
+        "login": username,
+        "password": password,
+        "nome": "string",
+        "email": "string",
+        "telefone": "string"
+    }
+
+    if (username.length > 0) {
+        const response = await fetch(window.location.origin + "/user/login", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*'
+                },
+                body: JSON.stringify(data)
+            },
+        ).then(function (data) {
+            return data.json();
+        }).then(function (data) {
+            console.log(data);
+            dataTest = data;
+            localStorage.setItem('userjwt', data["JWT"])
+            localStorage.setItem('ClienteId', data["ClienteId"])
+        })
+
+        if (localStorage.getItem("userjwt") != null) {
+            redirecionarPaginaLogin();
+        }
+    }
+}
+
+function redirecionarPaginaLogin() {
+    window.location.href = '../index.html';
 }

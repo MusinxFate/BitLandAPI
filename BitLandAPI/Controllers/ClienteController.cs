@@ -60,8 +60,17 @@ public class ClienteController : Controller
         var clienteDb = await _context.Clientes.FirstOrDefaultAsync(a => a.id_cliente == cliente.id_cliente);
         if (clienteDb != null)
         {
-            
-            return new ObjectResult(cliente) { StatusCode = 201 };
+            clienteDb.nome = (clienteDb.nome == cliente.nome) ? clienteDb.nome : cliente.nome;
+
+            clienteDb.email = (clienteDb.email == cliente.email) ? clienteDb.email : cliente.email;
+
+            clienteDb.telefone = (clienteDb.telefone == cliente.telefone) ? clienteDb.telefone : cliente.telefone;
+
+            clienteDb.senha = (clienteDb.senha == clienteDb.senha) ? clienteDb.senha : cliente.senha;
+
+            await _context.SaveChangesAsync();
+
+            return new ObjectResult(clienteDb) { StatusCode = 201 };
         }
 
         return BadRequest();

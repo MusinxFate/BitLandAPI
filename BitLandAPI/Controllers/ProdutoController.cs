@@ -73,18 +73,16 @@ public class ProdutoController : Controller
         var produtoDb = await _context.Produtos.FirstOrDefaultAsync(a => a.id_produto == produto.id_produto);
         if (produtoDb != null)
         {
-            if (!produto.nome.IsNullOrEmpty())
-                produtoDb.nome = (produto.nome == produtoDb.nome) ? produtoDb.nome : produto.nome;
+            produtoDb.nome = (produto.nome == produtoDb.nome) ? produtoDb.nome : produto.nome;
 
-            if (!produto.descricao.IsNullOrEmpty())
-                produtoDb.descricao =
-                    (produto.descricao == produtoDb.descricao) ? produtoDb.descricao : produto.descricao;
-
+            produtoDb.descricao = (produto.descricao == produtoDb.descricao) ? produtoDb.descricao : produto.descricao;
+            
             produtoDb.categoria = (produto.categoria == produtoDb.categoria) ? produtoDb.categoria : produto.categoria;
 
             produtoDb.destaque = (produto.destaque == produtoDb.destaque) ? produtoDb.destaque : produto.destaque;
 
             produtoDb.promocao = (produto.promocao == produtoDb.promocao) ? produtoDb.promocao : produto.promocao;
+            
             produtoDb.preco = (produto.preco == produtoDb.preco) ? produtoDb.preco : produto.preco;
 
             _context.SaveChangesAsync();
