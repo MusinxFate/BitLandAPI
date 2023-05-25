@@ -36,6 +36,20 @@ public class ProdutoController : Controller
         return NotFound("Produto não encontrado.");
     }
 
+    [HttpGet("/produtos/categoria/{categoria}")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> GetProduto(Categoria categoria)
+    {
+        var produtos = await _context.Produtos.Where(a => a.categoria == categoria).ToListAsync();
+        if (produtos != null)
+        {
+            return Ok(produtos);
+        }
+
+        return NotFound("Produtos da categoria não encontrados.");
+    }
+
     [HttpGet("destaques")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]

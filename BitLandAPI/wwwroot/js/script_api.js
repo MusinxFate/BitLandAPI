@@ -43,6 +43,7 @@ const getProducts = async () => {
 }
 
 function atualizarProdutos() {
+    document.querySelector("#Grid").innerHTML = "";
     produtos.forEach(a => {
         var liProduto = document.createElement("li");
         liProduto.className = "itens"
@@ -104,6 +105,17 @@ function atualizarProdutosPromocao() {
         liProdutoPromocao.appendChild(aLinkProdutoPromocao);
         document.querySelector("body > div.container > main > section.promotions > ul").appendChild(liProdutoPromocao);
     })
+}
+
+async function filtrarCategoria(categoriaNum){
+    const response = await fetch(window.location.origin + "/produtos/categoria/" + categoriaNum, {
+        headers: {
+            "ngrok-skip-browser-warning": "any"
+        }
+    });
+    const data = await response.json();
+    produtos = JSON.parse(JSON.stringify(data));
+    atualizarProdutos();
 }
 
 window.onload = () => loadPagina();
