@@ -109,10 +109,16 @@ const getProdutosDestaque = async () => {
     });
     const data = await response.json();
     produtos = JSON.parse(JSON.stringify(data));
-    atualizarProdutos();
+    load = document.getElementById('cubeloading');
+    load.style.display = 'block'
+    setTimeout(async function () {
+        await atualizarProdutos();
+        load.style.display = 'none';
+    }, 1500);
 }
 
 const getTodosProdutos = async () => {
+    document.querySelector("#Grid").innerHTML = "";
     const response = await fetch("/produtos", {
         headers: {
             "ngrok-skip-browser-warning": "any"
@@ -120,7 +126,12 @@ const getTodosProdutos = async () => {
     });
     const data = await response.json();
     produtos = JSON.parse(JSON.stringify(data));
-    atualizarProdutos();
+    load = document.getElementById('cubeloading');
+    load.style.display = 'block'
+    setTimeout(async function () {
+        await atualizarProdutos();
+        load.style.display = 'none';
+    }, 1500);
 }
 
 function atualizarProdutos() {
@@ -160,6 +171,7 @@ function atualizarProdutos() {
 }
 
 const getProdutosPromocao = async () => {
+    document.querySelector("#Grid").innerHTML = "";
     const response = await fetch("/produtos/promocoes", {
         headers: {
             "ngrok-skip-browser-warning": "any"
@@ -167,7 +179,13 @@ const getProdutosPromocao = async () => {
     });
     const data = await response.json();
     produtospromocao = JSON.parse(JSON.stringify(data));
-    atualizarProdutosPromocao();
+    load = document.getElementById('cubeloading');
+    load.style.display = 'block'
+    setTimeout(async function () {
+        await atualizarProdutosPromocao();
+        load.style.display = 'none';
+    }, 1500);
+    
 }
 
 function atualizarProdutosPromocao() {
