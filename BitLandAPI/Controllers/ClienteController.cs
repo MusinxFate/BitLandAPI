@@ -28,7 +28,10 @@ public class ClienteController : Controller
     {
         var cliente = await _context.Clientes.FirstOrDefaultAsync(a => a.id_cliente == id);
         if (cliente != null)
+        {
+            cliente.senha = null;
             return Ok(cliente);
+        }
 
         return NotFound("Cliente não encontrado");
     }
