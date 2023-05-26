@@ -1,64 +1,69 @@
-var produtos = [];
-var produtospromocao = [];
+let produtos = [];
+let produtospromocao = [];
 
 
-window.addEventListener('DOMContentLoaded', function() {
-    var btnMouses = document.getElementById('mouses');
-    var btnTeclados = document.getElementById('teclados');
-    var btnMonitores = document.getElementById('monitores');
-    var btnGabinetes = document.getElementById('gabinetes');
-    var btnHeadsets = document.getElementById('headsets');
-    var btnPromocoes = document.getElementById('promocoes');
-    var h3Element = document.getElementById('pageTitle');
+window.addEventListener('DOMContentLoaded', function () {
+    let btnMouses = document.getElementById('mouses');
+    let btnTeclados = document.getElementById('teclados');
+    let btnMonitores = document.getElementById('monitores');
+    let btnGabinetes = document.getElementById('gabinetes');
+    let btnHeadsets = document.getElementById('headsets');
+    let btnPromocoes = document.getElementById('promocoes');
+    let btnDestaques = document.getElementById('destaques');
+    let btnTodosProdutos = document.getElementById('todosProdutos');
+    let h3Element = document.getElementById('pageTitle');
 
-    btnMouses.addEventListener('click', function() {
+    btnMouses.addEventListener('click', function () {
         h3Element.innerText = 'Mouses';
     });
 
-    btnTeclados.addEventListener('click', function() {
+    btnTeclados.addEventListener('click', function () {
         h3Element.innerText = 'Teclados';
     });
 
-    btnMonitores.addEventListener('click', function() {
+    btnMonitores.addEventListener('click', function () {
         h3Element.innerText = 'Monitores';
     });
 
-    btnGabinetes.addEventListener('click', function() {
+    btnGabinetes.addEventListener('click', function () {
         h3Element.innerText = 'Gabinetes';
     });
 
-    btnHeadsets.addEventListener('click', function() {
+    btnHeadsets.addEventListener('click', function () {
         h3Element.innerText = 'Headsets';
     });
 
-    btnPromocoes.addEventListener('click', function() {
+    btnPromocoes.addEventListener('click', function () {
         h3Element.innerText = 'Promoções';
+    });
+    btnDestaques.addEventListener('click', function () {
+        h3Element.innerText = 'Destaques';
+    });
+
+    btnTodosProdutos.addEventListener('click', function () {
+        h3Element.innerText = 'Todos Produtos';
     });
 });
 
 const loadPagina = async () => {
-    load = document.getElementById('cubeloading');
-    setTimeout(async function() {
+    let load = document.getElementById('cubeloading');
+    setTimeout(async function () {
         await checkJwt();
         checkLogin();
-        await getProducts();
+        await getProdutosDestaque();
         load.style.display = 'none';
     }, 1500);
-    
-    // getProductsPromocao();
+
 }
 
 async function checkLogin() {
-    if (localStorage.getItem("userjwt") != null)
-    {
-        var response = await fetch("/clientes/" + localStorage.getItem("ClienteId"));
+    if (localStorage.getItem("userjwt") != null) {
+        let response = await fetch("/clientes/" + localStorage.getItem("ClienteId"));
         const data = await response.json();
         user = JSON.parse(JSON.stringify(data));
-        var loginbutton = document.querySelector("#userInfo");
+        let loginbutton = document.querySelector("#userInfo");
         loginbutton.href = "";
-    }
-    else
-    {
+    } else {
         document.querySelector("#userInfo").href = window.location.origin.toString() + "/pages/login_bitland.html"
     }
 }
@@ -71,8 +76,19 @@ const checkJwt = async () => {
     }
 }
 
-const getProducts = async () => {
+const getProdutosDestaque = async () => {
     const response = await fetch("/produtos/destaques", {
+        headers: {
+            "ngrok-skip-browser-warning": "any"
+        }
+    });
+    const data = await response.json();
+    produtos = JSON.parse(JSON.stringify(data));
+    atualizarProdutos();
+}
+
+const getTodosProdutos = async () => {
+    const response = await fetch("/produtos", {
         headers: {
             "ngrok-skip-browser-warning": "any"
         }
@@ -85,29 +101,29 @@ const getProducts = async () => {
 function atualizarProdutos() {
     document.querySelector("#Grid").innerHTML = "";
     produtos.forEach(a => {
-        var liProduto = document.createElement("li");
+        let liProduto = document.createElement("li");
         liProduto.className = "itens"
-        var aLinkProduto = document.createElement("a");
+        let aLinkProduto = document.createElement("a");
         aLinkProduto.className = "aTagProduto";
-        var imgProduto = document.createElement("img");
+        let imgProduto = document.createElement("img");
         imgProduto.src = window.location.origin + a.pathImage;
         imgProduto.alt = a.descricao;
         imgProduto.className = 'imgProduto';
-        var h3NomeProduto = document.createElement("h3");
+        let h3NomeProduto = document.createElement("h3");
         h3NomeProduto.innerText = a.nome;
         h3NomeProduto.className = 'nomeProduto';
-        var pPreco = document.createElement("p");
+        let pPreco = document.createElement("p");
         pPreco.className = "price";
         pPreco.innerText = (a.preco - (a.promocao / 100 * a.preco)).toFixed(2);
-        var btnEditar = document.createElement("button");
+        let btnEditar = document.createElement("button");
         btnEditar.innerText = "Editar";
         btnEditar.className = "btnEditar";
-        btnEditar.addEventListener("click", function() {
+        btnEditar.addEventListener("click", function () {
             $(document).ready(function () {
                 $('#myModal').modal('show');
             });
         });
-        
+
 
         aLinkProduto.appendChild(imgProduto);
         aLinkProduto.appendChild(h3NomeProduto);
@@ -118,7 +134,7 @@ function atualizarProdutos() {
     });
 }
 
-const getProductsPromocao = async () => {
+const getProdutosPromocao = async () => {
     const response = await fetch("/produtos/promocoes", {
         headers: {
             "ngrok-skip-browser-warning": "any"
@@ -130,33 +146,46 @@ const getProductsPromocao = async () => {
 }
 
 function atualizarProdutosPromocao() {
+    document.querySelector("#Grid").innerHTML = "";
     produtospromocao.forEach(a => {
-        var liProdutoPromocao = document.createElement("li");
-        var aLinkProdutoPromocao = document.createElement("a");
+        let liProdutoPromocao = document.createElement("li");
+        let aLinkProdutoPromocao = document.createElement("a");
         aLinkProdutoPromocao.href = "#";
-        var imgProduto = document.createElement("img");
+        aLinkProdutoPromocao.className = 'aTagProduto'
+        let imgProduto = document.createElement("img");
         imgProduto.src = window.location.origin + a.pathImage;
         imgProduto.alt = a.descricao;
-        imgProduto.className = 'imageDestaque';
-        var h3NomeProdutoPromocao = document.createElement("h3");
+        imgProduto.className = 'imgProduto';
+        let h3NomeProdutoPromocao = document.createElement("h3");
         h3NomeProdutoPromocao.innerText = a.nome;
-        var pPrecoNormal = document.createElement("p");
+        h3NomeProdutoPromocao.className = 'nomeProduto'
+        let pPrecoNormal = document.createElement("p");
         pPrecoNormal.className = "price-old";
         pPrecoNormal.innerText = a.preco;
-        var pPrecoDesconto = document.createElement("p");
+        let pPrecoDesconto = document.createElement("p");
         pPrecoDesconto.className = "price-new";
         pPrecoDesconto.innerText = (a.preco - (a.promocao / 100 * a.preco)).toFixed(2);
-
+        let btnEditar = document.createElement("button");
+        btnEditar.innerText = "Editar";
+        btnEditar.className = "btnEditar";
+        btnEditar.addEventListener("click", function () {
+            $(document).ready(function () {
+                $('#myModal').modal('show');
+            });
+        });
+        
+        
         aLinkProdutoPromocao.appendChild(imgProduto);
         aLinkProdutoPromocao.appendChild(h3NomeProdutoPromocao);
         aLinkProdutoPromocao.appendChild(pPrecoNormal);
         aLinkProdutoPromocao.appendChild(pPrecoDesconto);
+        aLinkProdutoPromocao.appendChild(btnEditar);
         liProdutoPromocao.appendChild(aLinkProdutoPromocao);
-        document.querySelector("body > div.container > main > section.promotions > ul").appendChild(liProdutoPromocao);
+        document.querySelector("#Grid").appendChild(liProdutoPromocao);
     })
 }
 
-async function filtrarCategoria(categoriaNum){
+async function filtrarCategoria(categoriaNum) {
     const response = await fetch(window.location.origin + "/produtos/categoria/" + categoriaNum, {
         headers: {
             "ngrok-skip-browser-warning": "any"
@@ -167,7 +196,7 @@ async function filtrarCategoria(categoriaNum){
     document.querySelector("#Grid").innerHTML = ""
     load = document.getElementById('cubeloading');
     load.style.display = 'block'
-    setTimeout(async function() {
+    setTimeout(async function () {
         await atualizarProdutos();
         load.style.display = 'none';
     }, 1500);

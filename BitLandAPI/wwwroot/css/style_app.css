@@ -232,6 +232,25 @@ body {
     border-radius: 25%;
 }
 
+.price-old {
+    background-color: #eee;
+    font-size: 1.2rem;
+    color: rgba(29, 30, 32);
+    text-align: center;
+    width: 35%;
+    border-radius: 25%;
+    text-decoration: line-through;
+}
+
+.price-new {
+    background-color: #eee;
+    font-size: 1.2rem;
+    color: rgba(29, 30, 32);
+    text-align: center;
+    width: 35%;
+    border-radius: 25%;
+}
+
 .nomeProduto {
     font-size: 1.2rem;
     text-align: center;
