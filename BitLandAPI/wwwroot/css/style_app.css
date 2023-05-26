@@ -1,6 +1,17 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 
+::-webkit-scrollbar { 
+    width: 2px;
+    background-color: var(--header-bg);
+}
+::-webkit-scrollbar-button       { /* 2 */ }
+::-webkit-scrollbar-track        { /* 3 */ }
+::-webkit-scrollbar-track-piece  { /* 4 */ }
+::-webkit-scrollbar-thumb        { /* 5 */ }
+::-webkit-scrollbar-corner       { /* 6 */ }
+::-webkit-resizer                { /* 7 */ }
+
 :root {
     --body-color: #0f0f0e;
     --white-color: #ffffff;
@@ -66,6 +77,20 @@ body {
     background-color: var(--header-bg);
     z-index: 6;
 }
+
+.header::before{
+    content: ".";
+}
+
+.header::before {
+    width: 1000px;
+    height: 1290px;
+    transform: translateX(869px) translateY(39px) rotateZ(90deg);
+    background-color: var(--header_color);
+    border-radius: 5px;
+    z-index: 7;
+}
+
 
 .header-menu {
     display: flex;
@@ -193,7 +218,7 @@ body {
 
 .imgProduto {
     height: 150px;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 150px;
     align-self: center;
 }
@@ -271,6 +296,7 @@ body {
     display: flex;
     margin: 50%;
     color: var(--header_color);
+    z-index: 10;
 }
 
 .close {
