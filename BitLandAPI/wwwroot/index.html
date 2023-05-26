@@ -16,7 +16,7 @@
 <body>
 <div class="header">
     <img class="logo" src="../images/Logo_bitland.png">
-    <h3 class="PaginaAtual">Destaques</h3>
+    <h3 class="PaginaAtual" id="pageTitle">Destaques</h3>
     <div class="header-icons">
         <a href="">
             <img src="images/icons/magnifierNavbar.png" class="navbarIcon">
@@ -35,12 +35,12 @@
         <ul class="menu-lista">
             <li class="item"><a onclick="getTodosProdutos()">Todos Produtos</a></li>
             <li class="item"><a onclick="getProductsDestaque()">Destaques</a></li>
-            <li class="item"><a onclick="getProductsPromocao()">Promoções</a></li>
-            <li class="item"><a onclick="filtrarCategoria(1)">Teclado</a></li>
-            <li class="item"><a onclick="filtrarCategoria(2)">Mouse</a></li>
-            <li class="item"><a onclick="filtrarCategoria(3)">Monitor</a></li>
-            <li class="item"><a onclick="filtrarCategoria(4)">Headset</a></li>
-            <li class="item"><a onclick="filtrarCategoria(5)">Gabinete</a></li>
+            <li class="item"><a onclick="getProductsPromocao()" id="promocoes">Promoções</a></li>
+            <li class="item"><a onclick="filtrarCategoria(1)" id="teclados">Teclado</a></li>
+            <li class="item"><a onclick="filtrarCategoria(2)" id="mouses">Mouse</a></li>
+            <li class="item"><a onclick="filtrarCategoria(3)" id="monitores">Monitor</a></li>
+            <li class="item"><a onclick="filtrarCategoria(4)" id="headsets">Headset</a></li>
+            <li class="item"><a onclick="filtrarCategoria(5)" id="gabinetes">Gabinete</a></li>
         </ul>
     </nav>
 </aside>

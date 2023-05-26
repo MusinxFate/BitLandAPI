@@ -1,6 +1,41 @@
 var produtos = [];
 var produtospromocao = [];
 
+
+window.addEventListener('DOMContentLoaded', function() {
+    var btnMouses = document.getElementById('mouses');
+    var btnTeclados = document.getElementById('teclados');
+    var btnMonitores = document.getElementById('monitores');
+    var btnGabinetes = document.getElementById('gabinetes');
+    var btnHeadsets = document.getElementById('headsets');
+    var btnPromocoes = document.getElementById('promocoes');
+    var h3Element = document.getElementById('pageTitle');
+
+    btnMouses.addEventListener('click', function() {
+        h3Element.innerText = 'Mouses';
+    });
+
+    btnTeclados.addEventListener('click', function() {
+        h3Element.innerText = 'Teclados';
+    });
+
+    btnMonitores.addEventListener('click', function() {
+        h3Element.innerText = 'Monitores';
+    });
+
+    btnGabinetes.addEventListener('click', function() {
+        h3Element.innerText = 'Gabinetes';
+    });
+
+    btnHeadsets.addEventListener('click', function() {
+        h3Element.innerText = 'Headsets';
+    });
+
+    btnPromocoes.addEventListener('click', function() {
+        h3Element.innerText = 'Promoções';
+    });
+});
+
 const loadPagina = async () => {
     await checkJwt();
     checkLogin();
