@@ -48,6 +48,7 @@ function atualizarProdutos() {
         var liProduto = document.createElement("li");
         liProduto.className = "itens"
         var aLinkProduto = document.createElement("a");
+        aLinkProduto.href = "";
         aLinkProduto.className = "aTagProduto";
         var imgProduto = document.createElement("img");
         imgProduto.src = window.location.origin + a.pathImage;
@@ -59,18 +60,10 @@ function atualizarProdutos() {
         var pPreco = document.createElement("p");
         pPreco.className = "price";
         pPreco.innerText = (a.preco - (a.promocao / 100 * a.preco)).toFixed(2);
-        var btnEditar = document.createElement("button");
-        btnEditar.innerText = "Editar";
-        btnEditar.className = "btnEditar";
-        btnEditar.addEventListener("click", function() {
-            $('#myModal').modal('show');
-        });
-        
 
         aLinkProduto.appendChild(imgProduto);
         aLinkProduto.appendChild(h3NomeProduto);
         aLinkProduto.appendChild(pPreco);
-        aLinkProduto.appendChild(btnEditar);
         liProduto.appendChild(aLinkProduto);
         document.querySelector("#Grid").appendChild(liProduto);
     });
