@@ -40,7 +40,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     color: var(--body-color);
 }
 
@@ -179,7 +179,7 @@ body {
     display: inline-flex;
     background: #eee;
     width: 16%;
-    height: 40%;
+    height: 25%;
     margin: 3%;
     /*margin-bottom: 5%;*/
     /*margin-top: 7%;*/
@@ -190,7 +190,6 @@ body {
 
 .imgProduto {
     margin: 5%;
-    padding-top: 5px;
     height: 150px;
     width: 150px;
     align-self: center;
@@ -203,6 +202,25 @@ body {
     text-align: center;
     width: 35%;
     border-radius: 25%;
+}
+
+.price-new {
+    background-color: #eee;
+    font-size: 1.2rem;
+    color: rgba(29, 30, 32);
+    text-align: center;
+    width: 35%;
+    border-radius: 25%;
+}
+
+.price-old {
+    background-color: #eee;
+    font-size: 1.2rem;
+    color: rgba(29, 30, 32);
+    text-align: center;
+    width: 35%;
+    border-radius: 25%;
+    text-decoration: line-through;
 }
 
 .nomeProduto {
