@@ -1,4 +1,5 @@
-﻿using BitLandAPI.Model;
+﻿using System.Reflection.Metadata;
+using BitLandAPI.Model;
 using BitLandAPI.Repository;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -70,7 +71,8 @@ public class ProdutoController : Controller
         try
         {
             _context.Produtos.Add(produto);
-            return Ok(await _context.SaveChangesAsync());
+            await _context.SaveChangesAsync();
+            return Ok(produto);
         }
         catch (Exception e)
         {
@@ -90,16 +92,16 @@ public class ProdutoController : Controller
             produtoDb.nome = (produto.nome == produtoDb.nome) ? produtoDb.nome : produto.nome;
 
             produtoDb.descricao = (produto.descricao == produtoDb.descricao) ? produtoDb.descricao : produto.descricao;
-            
+
             produtoDb.categoria = (produto.categoria == produtoDb.categoria) ? produtoDb.categoria : produto.categoria;
 
             produtoDb.destaque = (produto.destaque == produtoDb.destaque) ? produtoDb.destaque : produto.destaque;
 
             produtoDb.promocao = (produto.promocao == produtoDb.promocao) ? produtoDb.promocao : produto.promocao;
-            
+
             produtoDb.preco = (produto.preco == produtoDb.preco) ? produtoDb.preco : produto.preco;
 
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return new ObjectResult(produtoDb) { StatusCode = 201 };
         }
 
@@ -134,5 +136,20 @@ public class ProdutoController : Controller
         }
 
         return NotFound("Sem produtos em promoção.");
+    }
+
+    [HttpPost("upload")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> UploadImage()
+    {
+        var file = Request.Form.Files.FirstOrDefault();
+
+        using (var stream = System.IO.File.Create(Directory.GetCurrentDirectory() + file.FileName))
+        {
+            await file.CopyToAsync(stream);
+        }
+
+        return Ok($"Arquivo {file.FileName} salvo com sucesso.");
     }
 }
