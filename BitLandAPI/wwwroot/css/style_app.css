@@ -121,6 +121,7 @@ body {
     height: 100%;
     width: 225px;
     background-color: var(--header-bg);
+    border-right: 5px solid var(--header_color);
 }
 
 .lateral-menu {
@@ -151,7 +152,7 @@ body {
 }
 
 .item a:hover {
-    background-color: rgba(87, 87, 87, 0.62);
+    background-color: rgba(232, 75, 44, 0.38);
 }
 
 /*-----------------------------------------*/
@@ -177,6 +178,8 @@ body {
 
 #Grid li {
     display: inline-flex;
+    box-sizing: border-box;
+    padding: 10px;
     background: #eee;
     width: 16%;
     height: 40%;
@@ -189,9 +192,8 @@ body {
 }
 
 .imgProduto {
-    margin: 5%;
-    padding-top: 5px;
     height: 150px;
+    margin-top: 10px;
     width: 150px;
     align-self: center;
 }
