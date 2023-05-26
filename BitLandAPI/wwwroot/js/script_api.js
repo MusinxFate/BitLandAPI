@@ -37,9 +37,14 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 const loadPagina = async () => {
-    await checkJwt();
-    checkLogin();
-    await getProducts();
+    load = document.getElementById('cubeloading');
+    setTimeout(async function() {
+        await checkJwt();
+        checkLogin();
+        await getProducts();
+        load.style.display = 'none';
+    }, 1500);
+    
     // getProductsPromocao();
 }
 
@@ -159,7 +164,13 @@ async function filtrarCategoria(categoriaNum){
     });
     const data = await response.json();
     produtos = JSON.parse(JSON.stringify(data));
-    atualizarProdutos();
+    document.querySelector("#Grid").innerHTML = ""
+    load = document.getElementById('cubeloading');
+    load.style.display = 'block'
+    setTimeout(async function() {
+        await atualizarProdutos();
+        load.style.display = 'none';
+    }, 1500);
 }
 
 window.onload = () => loadPagina();
