@@ -15,35 +15,59 @@ window.addEventListener('DOMContentLoaded', function () {
 
     btnMouses.addEventListener('click', function () {
         h3Element.innerText = 'Mouses';
+        limparBackground();
+        btnMouses.style.backgroundColor = '#e84b2c';
     });
 
     btnTeclados.addEventListener('click', function () {
         h3Element.innerText = 'Teclados';
+        limparBackground();
+        btnTeclados.style.backgroundColor = '#e84b2c';
     });
 
     btnMonitores.addEventListener('click', function () {
         h3Element.innerText = 'Monitores';
+        limparBackground();
+        btnMonitores.style.backgroundColor = '#e84b2c';
     });
 
     btnGabinetes.addEventListener('click', function () {
         h3Element.innerText = 'Gabinetes';
+        limparBackground();
+        btnGabinetes.style.backgroundColor = '#e84b2c';
     });
 
     btnHeadsets.addEventListener('click', function () {
         h3Element.innerText = 'Headsets';
+        limparBackground();
+        btnHeadsets.style.backgroundColor = '#e84b2c';
     });
 
     btnPromocoes.addEventListener('click', function () {
         h3Element.innerText = 'Promoções';
+        limparBackground();
+        btnPromocoes.style.backgroundColor = '#e84b2c';
     });
     btnDestaques.addEventListener('click', function () {
         h3Element.innerText = 'Destaques';
+        limparBackground();
+        btnDestaques.style.backgroundColor = '#e84b2c';
     });
 
     btnTodosProdutos.addEventListener('click', function () {
         h3Element.innerText = 'Todos Produtos';
+        limparBackground();
+        btnTodosProdutos.style.backgroundColor = '#e84b2c';
     });
 });
+
+
+function limparBackground() {
+    document.querySelectorAll(".item").forEach(a => {
+        a.children.item(0).style = "";
+    })
+}
+
 
 const loadPagina = async () => {
     let load = document.getElementById('cubeloading');
@@ -60,6 +84,7 @@ async function checkLogin() {
     if (localStorage.getItem("userjwt") != null) {
         let response = await fetch("/clientes/" + localStorage.getItem("ClienteId"));
         const data = await response.json();
+        console.log(JSON.parse(JSON.stringify(data)));
         user = JSON.parse(JSON.stringify(data));
         let loginbutton = document.querySelector("#userInfo");
         loginbutton.href = "";
@@ -173,8 +198,8 @@ function atualizarProdutosPromocao() {
                 $('#myModal').modal('show');
             });
         });
-        
-        
+
+
         aLinkProdutoPromocao.appendChild(imgProduto);
         aLinkProdutoPromocao.appendChild(h3NomeProdutoPromocao);
         aLinkProdutoPromocao.appendChild(pPrecoNormal);

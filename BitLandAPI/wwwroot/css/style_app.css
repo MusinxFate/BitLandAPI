@@ -1,16 +1,28 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 
-::-webkit-scrollbar { 
+::-webkit-scrollbar {
     width: 2px;
     background-color: var(--header-bg);
 }
-::-webkit-scrollbar-button       { /* 2 */ }
-::-webkit-scrollbar-track        { /* 3 */ }
-::-webkit-scrollbar-track-piece  { /* 4 */ }
-::-webkit-scrollbar-thumb        { /* 5 */ }
-::-webkit-scrollbar-corner       { /* 6 */ }
-::-webkit-resizer                { /* 7 */ }
+
+::-webkit-scrollbar-button { /* 2 */
+}
+
+::-webkit-scrollbar-track { /* 3 */
+}
+
+::-webkit-scrollbar-track-piece { /* 4 */
+}
+
+::-webkit-scrollbar-thumb { /* 5 */
+}
+
+::-webkit-scrollbar-corner { /* 6 */
+}
+
+::-webkit-resizer { /* 7 */
+}
 
 :root {
     --body-color: #0f0f0e;
@@ -274,19 +286,20 @@ body {
     padding: 0;
     cursor: pointer;
 }
+
 @keyframes modalAnim {
     0% {
         width: 0%;
         height: 0%;
         border-radius: 100%;
     }
-    
-    
+
+
     100% {
-        width: 90%;
-        height: 90%;
+        width: 20%;
+        height: 50%;
     }
-    
+
 }
 
 .modal {
@@ -300,12 +313,29 @@ body {
     transition: 5s;
     border-radius: 25px;
     overflow: hidden;
+    align-self: center;
 }
 
 
 .modal div {
     width: 100%;
     height: 100%;
+    display: grid;
+}
+
+.modalInputHolder {
+    margin-top: -115px;
+    margin-bottom: 10px;
+}
+
+.modalInput {
+    color: var(--header_color);
+    align-self: center;
+}
+
+.inputLabel {
+    text-align: center;
+    color: var(--header_color);
 }
 
 .PaginaAtual {

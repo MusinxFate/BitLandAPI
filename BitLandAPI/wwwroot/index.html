@@ -35,7 +35,8 @@
     <nav class="lateral-menu">
         <ul class="menu-lista">
             <li class="item"><a onclick="getTodosProdutos()" id="todosProdutos">Todos Produtos</a></li>
-            <li class="item"><a onclick="getProdutosDestaque()" id="destaques">Destaques</a></li>
+            <li class="item"><a onclick="getProdutosDestaque()" id="destaques" style="background-color: #e84b2c">Destaques</a>
+            </li>
             <li class="item"><a onclick="getProdutosPromocao()" id="promocoes">Promoções</a></li>
             <li class="item"><a onclick="filtrarCategoria(1)" id="teclados">Teclado</a></li>
             <li class="item"><a onclick="filtrarCategoria(2)" id="mouses">Mouse</a></li>
@@ -58,10 +59,24 @@
 <ul id="Grid">
 </ul>
 
+
 <div hidden class="modal" id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div>
-            <img class="close" src="images/icons/Xbutton.png" data-dismiss="modal"/>
+            <img class="close" src="images/icons/Xbutton.png" data-dismiss="modal" alt="X" style="position: absolute"/>
+        </div>
+        <div class="modalInputHolder">
+            <h3 class="inputLabel">Nome do produto</h3> <input type="text" id="NomeProduto"
+                                                               placeholder="Nome do Produto" class="modalInput">
+            <h3 class="inputLabel"> Descrição do Produto</h3> <input type="text" id="Descricao"
+                                                                     placeholder="Descrição do produto"
+                                                                     class="modalInput">
+            <h3 class="inputLabel"> Preço</h3> <input type="text" id="Preco" placeholder="Preço" class="modalInput">
+            <h3 class="inputLabel"> % de desconto</h3> <input type="text" id="Promocao" placeholder="% de desconto"
+                                                              class="modalInput">
+            <h3 class="inputLabel"> Imagem</h3> <input type="file" id="Imagem" class="modalInput">
+            <h3 class="inputLabel"> Categoria</h3> <select name="Categoria" id="Categoria" class="modalInput"></select>
+            <h3 class="inputLabel"> Destaque</h3> <input type="checkbox" id="Destaque" class="modalInput">
         </div>
     </div>
 </div>
