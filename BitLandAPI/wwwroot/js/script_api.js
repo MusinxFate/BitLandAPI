@@ -102,6 +102,7 @@ const checkJwt = async () => {
 }
 
 const getProdutosDestaque = async () => {
+    document.querySelector("#Grid").innerHTML = "";
     const response = await fetch("/produtos/destaques", {
         headers: {
             "ngrok-skip-browser-warning": "any"
