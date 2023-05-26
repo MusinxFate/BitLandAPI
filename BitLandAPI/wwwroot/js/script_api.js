@@ -1,7 +1,9 @@
 let produtos = [];
 let produtospromocao = [];
+let textoPagina = [];
 
 const loadPagina = async () => {
+    textoPagina = document.querySelector(".PaginaAtual");
     await checkJwt();
     checkLogin();
     await getProductsDestaque();
@@ -39,6 +41,7 @@ const getProductsDestaque = async () => {
     });
     const data = await response.json();
     produtos = JSON.parse(JSON.stringify(data));
+    textoPagina.innerText = "Destaques"
     atualizarProdutos();
 }
 
@@ -108,6 +111,7 @@ const getProductsPromocao = async () => {
     });
     const data = await response.json();
     produtospromocao = JSON.parse(JSON.stringify(data));
+    textoPagina.innerText = "Promoções"
     atualizarProdutosPromocao();
 }
 
@@ -120,6 +124,10 @@ async function filtrarCategoria(categoriaNum){
     const data = await response.json();
     produtos = JSON.parse(JSON.stringify(data));
     atualizarProdutos();
+    
+    switch (categoriaNum) {
+        
+    }
 }
 
 async function getTodosProdutos() {
