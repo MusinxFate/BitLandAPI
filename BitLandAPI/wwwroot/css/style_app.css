@@ -270,3 +270,9 @@ body {
     margin: 50%;
     color: var(--header_color);
 }
+
+.close {
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 15px;
+}
